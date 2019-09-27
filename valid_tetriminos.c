@@ -6,9 +6,11 @@
 /*   By: lbernard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 19:22:26 by lbernard          #+#    #+#             */
-/*   Updated: 2019/09/27 14:28:14 by lbernard         ###   ########.fr       */
+/*   Updated: 2019/09/27 17:45:55 by lbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "tetriminos.h"
 
 int		convert_num(char **list)
 {
@@ -64,6 +66,26 @@ int		check_valid(char **list)
 	}
 	return (1);
 }
+
+char	**good_tetriminos(char **list)
+{
+		int		j;
+		int		i;
+		int		x;
+		int		y;
+		char	**good_list;
+		
+		i = 0;
+		j = 0;
+		x = 0;
+		y = 0;
+		good_list = ft_
+		while (j != 4)
+		{
+			if (
+		}
+}
+
 
 int		valid_tetriminos(int fd)
 {
