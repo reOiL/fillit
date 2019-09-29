@@ -6,12 +6,13 @@
 #    By: jwebber <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 17:06:25 by jwebber           #+#    #+#              #
-#    Updated: 2019/09/26 18:07:44 by jwebber          ###   ########.fr        #
+#    Updated: 2019/09/29 14:52:42 by jwebber          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC = main.c \
-	  get_next_line.c
+	  get_next_line.c \
+	  ft_usage.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -27,11 +28,14 @@ LIBFT = libft.a
 	@gcc $(FLAGS) -c $< -o $@
 	@printf "\e[32m😲 😲 😲  build success \e[36m$<\n"
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(LIBFT_PATH)$(LIBFT)
 	@gcc $(FLAGS) $(OBJ) $(LIBFT_PATH)$(LIBFT) -o $(NAME)
 	@printf "\e[36m 🏁  👍  👍  👍  $(NAME) 👍  👍  👍  🏁  !\n"
 
-all:
+$(LIBFT_PATH)$(LIBFT):
+	@$(MAKE) -C $(LIBFT_PATH)
+
+all: $(NAME)
 
 clean:
 	@$(MAKE) clean -C $(LIBFT_PATH)

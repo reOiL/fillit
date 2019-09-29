@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_usage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/26 17:12:46 by jwebber           #+#    #+#             */
-/*   Updated: 2019/09/29 14:52:23 by jwebber          ###   ########.fr       */
+/*   Created: 2019/09/29 14:47:29 by jwebber           #+#    #+#             */
+/*   Updated: 2019/09/29 14:52:13 by jwebber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int main(int argc, char **argv)
+void	ft_usage(void)
 {
-	(void)argv;
-	if (argc != 2)
-	{
-		ft_usage();
-		return (0);
-	}
-	return (0);
+	ft_putendl("usage: fillit file");
 }

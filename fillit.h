@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/26 17:12:46 by jwebber           #+#    #+#             */
-/*   Updated: 2019/09/29 14:52:23 by jwebber          ###   ########.fr       */
+/*   Created: 2019/09/29 14:43:16 by jwebber           #+#    #+#             */
+/*   Updated: 2019/09/29 14:51:58 by jwebber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#ifndef FILLIT_H
+# define FILLIT_H
 
-int main(int argc, char **argv)
-{
-	(void)argv;
-	if (argc != 2)
-	{
-		ft_usage();
-		return (0);
-	}
-	return (0);
-}
+# include "libft/libft.h"
+# include "get_next_line.h"
+
+void	ft_usage(void);
+
+#endif
