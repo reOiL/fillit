@@ -14,11 +14,17 @@
 
 int main(int argc, char **argv)
 {
-	(void)argv;
+	t_list	*lst;
+
 	if (argc != 2)
 	{
 		ft_usage();
 		return (0);
 	}
+	lst = ft_parse(argv[1]);
+	if (!lst)
+		ft_error(1);
+
+	ft_lstdel(&lst, ft_fill_del);
 	return (0);
 }
