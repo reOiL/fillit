@@ -16,9 +16,10 @@
 # include "libft/libft.h"
 # include "get_next_line.h"
 
-void	ft_usage(void);
-void	ft_error(int close);
-t_list	*ft_parse(char *file);
-void	ft_fill_del(void *data, size_t size);
+void			ft_usage(void);
+void			ft_error(int close);
+t_list			*ft_parse(char *file);
+void			ft_fill_del(void *data, size_t size);
+unsigned int	ft_tet_to_num(char **list);
 
 #endif
