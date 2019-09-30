@@ -21,5 +21,8 @@ void			ft_error(int close);
 t_list			*ft_parse(char *file);
 void			ft_fill_del(void *data, size_t size);
 unsigned int	ft_tet_to_num(char **list);
+size_t			ft_lst_size(t_list *lst);
+void			ft_map_clean(char **map);
+char			**ft_map_alloc(size_t size);
 
 #endif

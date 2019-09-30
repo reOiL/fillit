@@ -15,6 +15,7 @@
 int main(int argc, char **argv)
 {
 	t_list	*lst;
+	int 	tet_count;
 
 	if (argc != 2)
 	{
@@ -24,6 +25,8 @@ int main(int argc, char **argv)
 	lst = ft_parse(argv[1]);
 	if (!lst)
 		ft_error(1);
+
+	tet_count = ft_lst_size(lst);
 
 	ft_lstdel(&lst, ft_fill_del);
 	return (0);
