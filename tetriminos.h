@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tetriminos.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: lbernard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/26 17:12:46 by jwebber           #+#    #+#             */
-/*   Updated: 2019/09/29 14:52:23 by jwebber          ###   ########.fr       */
+/*   Created: 2019/09/27 17:47:26 by lbernard          #+#    #+#             */
+/*   Updated: 2019/09/27 17:47:29 by lbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-/*
-int main(int argc, char **argv)
-{
-	t_list	*lst;
+#ifndef TETRIMINOS_H
+# define TETRIMINOS_H
 
-	if (argc != 2)
-	{
-		ft_usage();
-		return (0);
-	}
-	lst = ft_parse(argv[1]);
-	if (!lst)
-		ft_error(1);
+# include "get_next_line.h"
 
-	ft_lstdel(&lst, ft_fill_del);
-	return (0);
-}
-*/
+#endif
