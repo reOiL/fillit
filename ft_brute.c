@@ -52,9 +52,10 @@ void		remove_block(char **field, char c)
 		i++;
 	}
 }
-
-int		place_block(char **field, char **block, size_t len, char c)
+/*
+int		place_block(char **field, t_quad *block, size_t len, char c)
 {
+	//TODO: refactoring me
 	size_t 	i;
 	size_t 	j;
 	int 	retry;
@@ -73,6 +74,7 @@ int		place_block(char **field, char **block, size_t len, char c)
 		{
 			if (i + p.y >= len)
 				return (-1);
+
 			if (field[i + p.y][j + p.x] != '.' && block[i % 5][j % 5] != '.')
 			{
 				ft_putendl("Impossible:");
@@ -101,7 +103,44 @@ int		place_block(char **field, char **block, size_t len, char c)
 	}
 	return (1);
 }
+*/
+int		place_block(char **field, t_quad *block, size_t len, char c)
+{
+	t_pair	iter;
 
+	iter.x = 0;
+	while (iter.x < len)
+	{
+		if (iter.x + block->p1.x >= len ||
+			iter.x + block->p2.x >= len ||
+			iter.x + block->p3.x >= len ||
+			iter.x + block->p4.x >= len)
+			return (0);
+		iter.y = 0;
+		while (iter.y < len)
+		{
+			if (iter.y + block->p1.y >= len ||
+				iter.y + block->p2.y >= len ||
+				iter.y + block->p3.y >= len ||
+				iter.y + block->p4.y >= len)
+				break;
+			if (field[iter.y + block->p1.y][iter.x + block->p1.x] == '.' &&
+					field[iter.y + block->p2.y][iter.x + block->p2.x] == '.' &&
+					field[iter.y + block->p3.y][iter.x + block->p3.x] == '.' &&
+					field[iter.y + block->p4.y][iter.x + block->p4.x] == '.')
+			{
+				field[iter.y + block->p1.y][iter.x + block->p1.x] = c;
+				field[iter.y + block->p2.y][iter.x + block->p2.x] = c;
+				field[iter.y + block->p3.y][iter.x + block->p3.x] = c;
+				field[iter.y + block->p4.y][iter.x + block->p4.x] = c;
+				return (1);
+			}
+			iter.y++;
+		}
+		iter.x++;
+	}
+	return (-1);
+}
 int 	ft_brute2(char **ret, size_t len, t_list *lst, char index)
 {
 	int 	k;
@@ -111,7 +150,7 @@ int 	ft_brute2(char **ret, size_t len, t_list *lst, char index)
 	if (!lst)
 		return (0);
 	ft_putendl("\e[48;5;16m----------------------------------------------------\e[0m");
-	k = place_block(ret, (char **)lst->content, len, index);
+	k = place_block(ret, (t_quad *)lst->content, len, index);
 	ft_print(ret, len);
 	if (k != 1)
 	{
