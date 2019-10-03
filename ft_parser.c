@@ -13,7 +13,7 @@ char 	**ft_read_node(int fd)
 
 	if (fd < 0)
 		return (NULL);
-	ret = ft_memalloc(sizeof(char **) * 4);
+	ret = ft_memalloc(sizeof(char **) * 5);
 	if (!ret)
 		return (NULL);
 	 i = 0;
@@ -22,7 +22,7 @@ char 	**ft_read_node(int fd)
 		code = get_next_line(fd, &ret[i]);
 		if (code == -1 || (code == 0 && i != 4) || ft_strlen(ret[i]) != 4)
 		{
-			ft_fill_del((void **)ret, 0);
+			ft_remove_sstr(&ret);
 			return (NULL);
 		}
 		i++;
@@ -55,6 +55,7 @@ t_list	*ft_parse(char *file)
 	t_list	*lst;
 	char 	**buff;
 	int 	code;
+	t_quad	quad;
 
 	fd = open(file, O_RDONLY);
 	lst = NULL;
@@ -67,11 +68,12 @@ t_list	*ft_parse(char *file)
 		if (!buff || code < 0)
 		{
 			ft_lstdel(&lst, ft_fill_del);
-			ft_memdel((void **) &buff);
+			ft_remove_sstr(&buff);
 			return (NULL);
 		}
-		ft_lstadd(&lst, ft_lstnew((void *)buff, sizeof(char *) * 4));
-		ft_memdel((void **) &buff);
+		quad = ft_tet_coordinate(buff);
+		ft_lstadd(&lst, ft_lstnew((void *)&quad, sizeof(t_quad)));
+		ft_remove_sstr(&buff);
 		if (code == 0)
 			break;
 	}
