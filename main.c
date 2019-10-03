@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-
+/*
 int main(int argc, char **argv)
 {
 	t_list	*lst;
@@ -31,3 +31,4 @@ int main(int argc, char **argv)
 	ft_lstdel(&lst, ft_fill_del);
 	return (0);
 }
+*/

@@ -1,7 +1,7 @@
 /***************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_tet_to_num.c                                    :+:      :+:    :+:    #
+#    min_max.c                                          :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: lbernard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
@@ -12,21 +12,29 @@
 
 #include "fillit.h"
 
-int    ft_tet_to_num(char **list)
+int         *min_max(int *c)
 {
-    int                i;
-    int                j;
-    unsigned int    ret;
+    int     b;
+    int     *minmax;
+    int     k;
 
-    i = 4;
-    ret = 1;
-    while (--i > -1)
+    k = 0;
+    minmax = ft_memalloc(4);
+    minmax[0] = c[k] / 10;
+    minmax[1] = c[k] / 10;
+    minmax[2] = c[k] % 10;
+    minmax[3] = c[k] % 10;
+    while(k < 4)
     {
-        j = 4;
-        while (--j > -1)
-        {
-            ret = (ret << 1) | (list[i][j] != '.');
-        }
+        if (minmax[0] > c[k] / 10)
+            minmax[0] = c[k] / 10;
+        if (minmax[1] < c[k] / 10)
+            minmax[1] = c[k] / 10;
+        if (minmax[2] > c[k] % 10)
+            minmax[2] = c[k] % 10;
+        if (minmax[3] < c[k] % 10)
+            minmax[3] = c[k] % 10;
+        k++;
     }
-    return  (ret);
+    return (minmax);
 }

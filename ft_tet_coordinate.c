@@ -1,7 +1,7 @@
 /***************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ft_tet_to_num.c                                    :+:      :+:    :+:    #
+#    ft_tet_coordinate.c                                :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: lbernard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
@@ -12,21 +12,29 @@
 
 #include "fillit.h"
 
-int    ft_tet_to_num(char **list)
+int     *ft_tet_coordinate(char **list)
 {
-    int                i;
-    int                j;
-    unsigned int    ret;
+    int     i;
+    int     j;
+    int     *coord;
+    int     p;
 
-    i = 4;
-    ret = 1;
-    while (--i > -1)
+    i = 0;
+    p = 0;
+    coord = ft_memalloc(4);
+    while (i < 4)
     {
-        j = 4;
-        while (--j > -1)
+        j = 0;
+        while(j < 4 && p < 4)
         {
-            ret = (ret << 1) | (list[i][j] != '.');
+            if (list[i][j] != '.')
+            {
+                coord[p] = i * 10 + j;
+                p++;
+            }
+            j++;
         }
+        i++;
     }
-    return  (ret);
+    return (coord);
 }
