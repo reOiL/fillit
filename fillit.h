@@ -26,7 +26,7 @@ void			ft_map_clean(char **map);
 char			**ft_map_alloc(size_t size);
 char			**ft_brute(t_list *lst, size_t len);
 int	            ft_tet_to_num(char **list);
-int             *ft_tet_coordinate(char **list);
+t_quad			ft_tet_coordinate(char **list);
 int             *min_max(int *c);
 int             tet_is_valid(int c);
 char            **to_good_tetrim(char **list);

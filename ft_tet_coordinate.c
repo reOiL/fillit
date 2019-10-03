@@ -12,16 +12,17 @@
 
 #include "fillit.h"
 
-int     *ft_tet_coordinate(char **list)
+t_quad	ft_tet_coordinate(char **list)
 {
     int     i;
     int     j;
-    int     *coord;
+	t_pair	*ptr;
     int     p;
+	t_quad	ret;
 
     i = 0;
     p = 0;
-    coord = ft_memalloc(4);
+    ptr = &ret.p1;
     while (i < 4)
     {
         j = 0;
@@ -29,12 +30,14 @@ int     *ft_tet_coordinate(char **list)
         {
             if (list[i][j] != '.')
             {
-                coord[p] = i * 10 + j;
+            	ptr->y = i;
+            	ptr->x = j;
                 p++;
+                ptr++;
             }
             j++;
         }
         i++;
     }
-    return (coord);
+    return (ret);
 }
