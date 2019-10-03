@@ -1,96 +1,39 @@
+#include "fillit.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 int     tet_is_valid(int c)
 {
-    int     lst[19] =  {69905, 65551, 65587, 65811, 66083, 65559, 65607, 66338, 66321, 65649, 65652, 65841, 65650, 66098, 65575, 65635, 65842, 65590, 66097};
     int     w;
+    int     lst[19];
+
+    lst[0] = 69905;
+    lst[1] = 65551;
+    lst[2] = 65587;
+    lst[3] = 65811;
+    lst[4] = 66083;
+    lst[5] = 65559;
+    lst[6] = 65607;
+    lst[7] = 66338;
+    lst[8] = 66321;
+    lst[9] = 65649;
+    lst[10] = 65652;
+    lst[11] = 65841;
+    lst[12] = 65650;
+    lst[13] = 66098;
+    lst[14] = 65575;
+    lst[15] = 65635;
+    lst[16] = 65842;
+    lst[17] = 65590;
+    lst[18] = 66097;
     w = 0;
     while(w < 19)
     {
-        if (lst[w] == c)
+        if (lst[w++] == c)
             return (1);
-        w++;
     }
     return (0);
 }
 
-int    ft_tet_to_num(char **list)
-{
-    int                i;
-    int                j;
-    unsigned int    ret;
-
-    i = 4;
-    ret = 1;
-    while (--i > -1)
-    {
-        j = 4;
-        while (--j > -1)
-        {
-            ret = (ret << 1) | (list[i][j] != '.');
-        }
-    }
-    return  (ret);
-}
-
-int     *ft_tet_coordinate(char **list)
-{
-    int     i;
-    int     j;
-    int     *coord;
-    int     p;
-
-    i = 0;
-    p = 0;
-    coord = (int *)malloc(sizeof(int) * 4);
-    while (i < 4)
-    {
-        j = 0;
-        while(j < 4 && p < 4)
-        {
-            if (list[i][j] == '.')
-                j++;
-            else
-            {
-                coord[p] = i * 10 + j;
-                j++;
-                p++;
-
-            }
-        }
-        i++;
-    }
-    return (coord);
-}
-
-
-int         *min_max(int *c)
-{
-    int     b;
-    int     *minmax;
-    int     k;
-
-    k = 0;
-    minmax = (int *)malloc(sizeof(int) * 4);
-    minmax[0] = c[k] / 10;
-    minmax[1] = c[k] / 10;
-    minmax[2] = c[k] % 10;
-    minmax[3] = c[k] % 10;
-    while(k < 4)
-    {
-        if (minmax[0] > c[k] / 10)
-            minmax[0] = c[k] / 10;
-        if (minmax[1] < c[k] / 10)
-            minmax[1] = c[k] / 10;
-        if (minmax[2] > c[k] % 10)
-            minmax[2] = c[k] % 10;
-        if (minmax[3] < c[k] % 10)
-            minmax[3] = c[k] % 10;
-        k++;
-    }
-    return (minmax);
-}
 
 char    **to_good_tetrim(char **list)
 {
@@ -101,7 +44,7 @@ char    **to_good_tetrim(char **list)
     int         tp;
 
 
-    c = (int *)malloc(sizeof(int) * 4);
+    c = ft_memalloc(4);
     c = min_max(ft_tet_coordinate(list));
     tmp = (char **)malloc(sizeof(char*) * 4);
     i = 0;
@@ -114,9 +57,8 @@ char    **to_good_tetrim(char **list)
         {
             if(c[2] < (c[3] + 1) && c[0] < (c[1] + 1))
                 tmp[i][j] = list[c[0]][c[2]];
-              else
-                  tmp[i][j] = '.';
-            printf("%c", tmp[i][j]);
+            else
+                tmp[i][j] = '.';
             j++;
             c[2]++;
         }
@@ -147,7 +89,7 @@ int main()
     printf("%d \n", tet_is_valid(ft_tet_to_num(to_good_tetrim(tmp6))));
     printf("%d \n", tet_is_valid(ft_tet_to_num(to_good_tetrim(tmp7))));
     printf("%d \n", tet_is_valid(ft_tet_to_num(to_good_tetrim(tmp8))));
-    
+
     return 0;
 
 }

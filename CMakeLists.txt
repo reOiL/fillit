@@ -17,5 +17,5 @@ add_executable(fillit ft_usage.c get_next_line.c main.c libft/ft_atoi.c libft/ft
         libft/ft_strsub.c libft/ft_strtrim.c libft/ft_tolower.c libft/ft_toupper.c libft/ft_wcount.c ft_error.c ft_parser.c ft_fill_del.c ft_tet_to_num.c
 
         libft/ft_strsub.c libft/ft_strtrim.c libft/ft_tolower.c libft/ft_toupper.c libft/ft_wcount.c
-        valid_tetriminos.c)
+        valid_tetriminos.c ft_tet_coordinate.c min_max.c)
 

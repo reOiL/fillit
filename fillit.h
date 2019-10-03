@@ -20,6 +20,10 @@ void			ft_usage(void);
 void			ft_error(int close);
 t_list			*ft_parse(char *file);
 void			ft_fill_del(void *data, size_t size);
-unsigned int	ft_tet_to_num(char **list);
+int	            ft_tet_to_num(char **list);
+int             *ft_tet_coordinate(char **list);
+int             *min_max(int *c);
+int             tet_is_valid(int c);
+char            **to_good_tetrim(char **list);
 
 #endif
