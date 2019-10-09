@@ -15,4 +15,4 @@ add_executable(fillit ft_usage.c get_next_line.c main.c libft/ft_atoi.c libft/ft
         libft/ft_strnew.c libft/ft_strnstr.c libft/ft_strrchr.c libft/ft_strrev.c libft/ft_strsplit.c libft/ft_strstr.c
         libft/ft_strsub.c libft/ft_strtrim.c libft/ft_tolower.c libft/ft_toupper.c libft/ft_wcount.c ft_error.c
         ft_parser.c ft_fill_del.c ft_tet_to_num.c ft_lstsize.c ft_map_clean.c ft_map_alloc.c ft_brute.c
-        ft_tet_coordinate.c ft_print_result.c)
+        ft_tet_coordinate.c ft_print_result.c ft_mapsize.c)

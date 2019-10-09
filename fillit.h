@@ -31,5 +31,6 @@ int             *min_max(int *c);
 int             tet_is_valid(int c);
 char            **to_good_tetrim(char **list);
 void			ft_print_result(char **a, size_t len);
+int				ft_map_size(int tetrim_kolvo);
 
 #endif

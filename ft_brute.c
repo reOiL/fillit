@@ -111,7 +111,7 @@ int		place_block(char **field, t_quad *block, size_t len, char c)
 		}
 		iter.x++;
 	}
-	return (-1);
+	return (0);
 }
 int 	ft_brute2(char **ret, size_t len, t_list *lst, char index)
 {
@@ -121,23 +121,51 @@ int 	ft_brute2(char **ret, size_t len, t_list *lst, char index)
 		return (-1);
 	if (!lst)
 		return (0);
-	ft_putendl("\e[48;5;16m----------------------------------------------------\e[0m");
+	//ft_putendl("\e[48;5;16m----------------------------------------------------\e[0m");
 	k = place_block(ret, (t_quad *)lst->content, len, index);
-	ft_print_result(ret, len);
+	//ft_print_result(ret, len);
 	if (k != 1)
 	{
 		remove_block(ret, index);
-		return (0);
+		return (-1);
 	}
 	return (ft_brute2(ret, len, lst->next, index + (char)1));
 }
 
+t_list	*ft_lst_back(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	if (!lst->next)
+		return (lst);
+	return (ft_lst_back(lst->next));
+}
+
+#include <stdio.h>
 char	**ft_brute(t_list *lst, size_t len)
 {
 	char	**ret;
+	t_list	*first;
+	t_list	*back;
+	t_list	*next;
 
 	if (!(ret = ft_map_alloc(len)))
 		return (NULL);
-	ft_brute2(ret, len, lst, 'A');
+	first = lst;
+	back = ft_lst_back(lst);
+	next = NULL;
+	while (next != first)
+	{
+		if (ft_brute2(ret, len, lst, 'A') == 1)
+			break ;
+		ft_print_result(ret, len);
+		ft_putendl("Brute failed");
+		next = lst->next;
+		back->next = lst;
+		back = lst;
+		lst->next = NULL;
+		lst = next;
+		ft_map_clean(ret);
+	}
 	return (ret);
 }
