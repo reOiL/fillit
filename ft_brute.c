@@ -113,23 +113,23 @@ int		place_block(char **field, t_quad *block, size_t len, char c)
 	}
 	return (0);
 }
-int 	ft_brute2(char **ret, size_t len, t_list *lst, char index)
+int 	ft_brute2(char **ret, size_t len, t_quad	**array/*t_list *lst*/, char index)
 {
 	int 	k;
 
 	if (!ret)
 		return (-1);
-	if (!lst)
+	if (!*array)
 		return (0);
 	//ft_putendl("\e[48;5;16m----------------------------------------------------\e[0m");
-	k = place_block(ret, (t_quad *)lst->content, len, index);
+	k = place_block(ret, (t_quad *)*array, len, index);
 	//ft_print_result(ret, len);
 	if (k != 1)
 	{
 		remove_block(ret, index);
 		return (-1);
 	}
-	return (ft_brute2(ret, len, lst->next, index + (char)1));
+	return (ft_brute2(ret, len, array + 1, index + (char)1));
 }
 
 t_list	*ft_lst_back(t_list *lst)
@@ -141,30 +141,34 @@ t_list	*ft_lst_back(t_list *lst)
 	return (ft_lst_back(lst->next));
 }
 
+t_quad	**ft_lst_to_array(t_list	*lst, size_t len)
+{
+	size_t	i = 0;
+	t_quad	**ret = (t_quad**)ft_memalloc((len + 1) * sizeof(t_quad *));
+
+	while (lst)
+	{
+		ret[i] = lst->content;
+		lst = lst->next;
+		i++;
+	}
+	return (ret);
+}
+
 #include <stdio.h>
 char	**ft_brute(t_list *lst, size_t len)
 {
 	char	**ret;
-	t_list	*first;
-	t_list	*back;
-	t_list	*next;
+	t_quad	**array = ft_lst_to_array(lst, len);
 
-	if (!(ret = ft_map_alloc(len)))
+	if (!(ret = ft_map_alloc(len + 1)))
 		return (NULL);
-	first = lst;
-	back = ft_lst_back(lst);
-	next = NULL;
-	while (next != first)
+	while (1)
 	{
-		if (ft_brute2(ret, len, lst, 'A') == 1)
+		if (ft_brute2(ret, len + 1, array/*lst*/, 'A') == 0)
 			break ;
-		ft_print_result(ret, len);
+		ft_print_result(ret, len + 1);
 		ft_putendl("Brute failed");
-		next = lst->next;
-		back->next = lst;
-		back = lst;
-		lst->next = NULL;
-		lst = next;
 		ft_map_clean(ret);
 	}
 	return (ret);

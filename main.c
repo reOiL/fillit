@@ -28,6 +28,7 @@ int main(int argc, char **argv)
 
 	tet_count = ft_lst_size(lst);
 	char ** result = ft_brute(lst, ft_map_size(tet_count));
+	ft_print_result(result, tet_count + 1);
 	ft_lstdel(&lst, ft_fill_del);
 	ft_remove_sstr(&result);
 	return (0);
