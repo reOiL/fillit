@@ -1,12 +1,12 @@
 //
-// Created by Johnny Webber on 29/09/2019.
+// Created by reoil on 14.10.2019.
 //
+
 
 #include "fillit.h"
 
-void	ft_error(int close)
-{
-	ft_putendl("error");
-	if (close)
-		exit(0);
+void ft_error(int close) {
+    ft_putendl_fd("error", 2);
+    if (close)
+        exit(0);
 }

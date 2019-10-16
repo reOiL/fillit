@@ -1,35 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/26 17:12:46 by jwebber           #+#    #+#             */
-/*   Updated: 2019/09/29 14:52:23 by jwebber          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fillit.h"
 
-int main(int argc, char **argv)
-{
-	t_list	*lst;
-	int 	tet_count;
-
-	if (argc != 2)
-	{
-		ft_usage();
-		return (0);
-	}
-	lst = ft_parse(argv[1]);
-	if (!lst)
-		ft_error(1);
-
-	tet_count = ft_lst_size(lst);
-	char ** result = ft_brute(lst, ft_map_size(tet_count));
-	ft_print_result(result, tet_count + 1);
-	ft_lstdel(&lst, ft_fill_del);
-	ft_remove_sstr(&result);
-	return (0);
+int main(int argc, char **argv) {
+    t_list *lst;
+    if (argc != 2) {
+        ft_putendl("usage: fillit file");
+        return (0);
+    }
+    lst = ft_parse(argv[1]);
+    if (!lst)
+        ft_error(1);
+    char **ret = ft_brute(lst);
+    ft_print_result(ret, ft_find_size(ft_lstsize(lst) * 4));
+    ft_lstdel(&lst, ft_fill_del);
+    return 0;
 }
