@@ -3,7 +3,8 @@
 //
 
 #include "fillit.h"
-
+//#define PRINT_COLORED
+#ifdef PRINT_COLORED
 void	ft_print_result(char **a, size_t len)
 {
     size_t i;
@@ -31,3 +32,24 @@ void	ft_print_result(char **a, size_t len)
         i++;
     }
 }
+#else
+void	ft_print_result(char **a, size_t len)
+{
+	size_t i;
+	size_t j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = 0;
+		while (j < len)
+		{
+			ft_putchar(a[i][j]);
+			j++;
+		}
+		ft_putchar('\n');
+		i++;
+	}
+}
+
+#endif

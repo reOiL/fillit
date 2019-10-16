@@ -56,8 +56,9 @@ char **ft_normalize(char **buff) {
     int i;
     int j;
     int d;
-    char *ptr;
 
+    if (!buff)
+		return (NULL);
     swap_pair.x = ft_find_up(buff);
     assert(swap_pair.x != -1);
     swap_pair.y = ft_find_right(buff);
@@ -65,7 +66,7 @@ char **ft_normalize(char **buff) {
     i = 0;
     while (i < swap_pair.x)
     {
-        j = 1;
+        j = 1;//TODO: fix me
         while (j < 4)
         {
             ft_swap_ptr((void **)&buff[i + j - 1], (void **)&buff[j]);

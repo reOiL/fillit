@@ -22,23 +22,37 @@ SRC = ft_brute.c \
         get_next_line.c \
         main.c
 OBJ = $(SRC:.c=.o)
-FLAGS = #-Wall -Wextra -Werror
+
+FLAGS = -Wall -Wextra -Werror
+
 NAME = fillit
 
-# libft
 LIBFT_PATH = libft/
-LIBFT_BIN = libft.a
-LIBFT = $(LIBFT_PATH)$(LIBFT_BIN)
+
+LIBFT = libft.a
 
 .c.o:
-		gcc -c -o $@ $< $(FLAGS)
+	@gcc $(FLAGS) -c $< -o $@
+	@printf "\e[32m😲 😲 😲  build success \e[36m$<\n"
 
-$(NAME): $(OBJ) $(LIBFT)
-	    gcc -o $@ $^ $(LIBFT) $(FLAGS)
+$(NAME): $(OBJ) $(LIBFT_PATH)$(LIBFT)
+	@gcc $(FLAGS) $(OBJ) $(LIBFT_PATH)$(LIBFT) -o $(NAME)
+	@printf "\e[36m 🏁  👍  👍  👍  $(NAME) 👍  👍  👍  🏁  !\n"
 
-.PHONY: $(LIBFT)
+$(LIBFT_PATH)$(LIBFT):
+	@$(MAKE) -C $(LIBFT_PATH)
 
-$(LIBFT):
-	    $(MAKE) -C $(LIBFT_PATH)
-	
 all: $(NAME)
+
+clean:
+	@$(MAKE) clean -C $(LIBFT_PATH)
+	@$(RM) $(OBJ)
+	@printf "\e[33mCleaned 😵 😵 😵 😵  !!!\n"
+
+fclean: clean
+	@$(MAKE) fclean -C $(LIBFT_PATH)
+	@$(RM) $(NAME)
+	@printf "\e[31mFull cleaned 💀 💀 💀 💀  !!!\n"
+
+re: fclean all
+	@$(MAKE) re -C $(LIBFT_PATH)
