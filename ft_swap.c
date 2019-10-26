@@ -1,23 +1,31 @@
-//
-// Created by reoil on 14.10.2019.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/26 15:02:03 by jwebber           #+#    #+#             */
+/*   Updated: 2019/10/26 15:02:49 by jwebber          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fillit.h"
 
-void    ft_swap(char *a, char *b)
+void	ft_swap(char *a, char *b)
 {
-    char c;
+	char c;
 
-    c = *a;
-    *a = *b;
-    *b = c;
+	c = *a;
+	*a = *b;
+	*b = c;
 }
 
-void    ft_swap_ptr(void **a, void **b)
+void	ft_swap_ptr(void **a, void **b)
 {
-    void *c;
+	void *c;
 
-    c = *a;
-    *a = *b;
-    *b = c;
+	c = *a;
+	*a = *b;
+	*b = c;
 }

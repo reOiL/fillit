@@ -6,7 +6,7 @@
 #    By: jwebber <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 17:06:25 by jwebber           #+#    #+#              #
-#    Updated: 2019/10/16 17:21:16 by jwebber          ###   ########.fr        #
+#    Updated: 2019/10/26 15:08:36 by jwebber          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRC = ft_brute.c \
         ft_swap.c \
         ft_tet_coordinate.c \
         get_next_line.c \
-        main.c
+        main.c \
+		ft_parser2.c
+
 OBJ = $(SRC:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror

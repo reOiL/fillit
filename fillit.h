@@ -21,5 +21,8 @@ void	ft_swap_ptr(void **a, void **b);
 void	ft_print_result(char **a, size_t len);
 size_t	ft_find_size(size_t len);
 size_t	ft_find_size(size_t len);
+int		ft_tet_to_num(char **list);
+int		check_tet(char **tet);
+int		check_valid_inp(char *str);
 
 #endif //FILLIT_FILLIT_H
