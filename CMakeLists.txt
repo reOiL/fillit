@@ -14,4 +14,5 @@ add_executable(main.c libft/ft_atoi.c libft/ft_bzero.c libft/ft_isalnum.c libft/
         libft/ft_strjoin.c libft/ft_strlcat.c libft/ft_strlen.c libft/ft_strmap.c libft/ft_strmapi.c libft/ft_strncat.c
         libft/ft_strncmp.c libft/ft_strncpy.c libft/ft_strnequ.c libft/ft_strnew.c libft/ft_strnstr.c libft/ft_strrchr.c
         libft/ft_strrev.c libft/ft_strsplit.c libft/ft_strstr.c libft/ft_strsub.c libft/ft_strtrim.c libft/ft_tolower.c
-        libft/ft_toupper.c libft/ft_wcount.c fillit.h ft_error.c get_next_line.c ft_parser.c ft_fill_del.c ft_brute.c ft_lstsize.c ft_pair.h ft_tet_coordinate.c ft_normalize.c ft_swap.c ft_print_result.c)
+        libft/ft_toupper.c libft/ft_wcount.c fillit.h ft_error.c get_next_line.c ft_parser.c ft_fill_del.c ft_brute.c
+        ft_lstsize.c ft_pair.h ft_tet_coordinate.c ft_normalize.c ft_swap.c ft_print_result.c ft_parser2.c)

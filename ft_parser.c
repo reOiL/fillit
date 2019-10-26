@@ -76,7 +76,8 @@ t_list	*ft_parse(char *file)
 	t_quad	quad;
 
 	fd = open(file, O_RDONLY);
-	if (fd < 0 && !(lst = NULL))
+	lst = NULL;
+	if (fd < 0)
 		return (NULL);
 	while (1)
 	{
