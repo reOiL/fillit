@@ -24,7 +24,7 @@ void	*ft_remove_sstr(char ***s)
 		ft_strdel(&(*s)[i]);
 		i++;
 	}
-	ft_memdel((void **)(*s));
+	ft_memdel((void **)&(*s));
 	*s = NULL;
 	return (*s);
 }

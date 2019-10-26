@@ -19,7 +19,7 @@ size_t ft_lstsize(t_list *list);
 
 t_quad ft_tet_coordinate(char **list);
 
-char **ft_brute(t_list *lst);
+void ft_brute(t_list *lst);
 
 char **ft_normalize(char **buff);
 

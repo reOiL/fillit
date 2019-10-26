@@ -18,7 +18,7 @@ char **ft_create_field(size_t len) {
     char **ret;
     size_t i;
 
-    ret = ft_memalloc(sizeof(char *) * len);
+    ret = ft_memalloc(sizeof(char *) * (len + 1));
     if (!ret)
         return (NULL);
     i = 0;
@@ -78,7 +78,6 @@ int ft_brute2(char **field, t_list *lst, size_t size, char word) {
         while (iter.x < (int)size) {
             if (is_possible((t_quad *) lst->content, size, iter, field)) {
 				ft_set_block(field, iter, *(t_quad *) lst->content, word);
-                //ft_print_result(field, size);
                 i++;
                 if (ft_brute2(field, lst->next, size, word + 1))
                     return (1);
@@ -92,7 +91,7 @@ int ft_brute2(char **field, t_list *lst, size_t size, char word) {
     return (0);
 }
 
-char **ft_brute(t_list *lst) {
+void ft_brute(t_list *lst) {
     size_t field_size;
     char **field;
 
@@ -100,10 +99,9 @@ char **ft_brute(t_list *lst) {
     field = ft_create_field(field_size);
     while (!ft_brute2(field, lst, field_size, 'A')) {
         field_size++;
-//        ft_remove_sstr(&field);
-//TODO: remove leak
+        ft_remove_sstr(&field);
         field = ft_create_field(field_size);
     }
     ft_print_result(field, field_size);
-    return (field);
+    ft_remove_sstr(&field);
 }
