@@ -1,12 +1,20 @@
-//
-// Created by reoil on 14.10.2019.
-//
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/26 14:30:46 by jwebber           #+#    #+#             */
+/*   Updated: 2019/10/26 14:32:33 by jwebber          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fillit.h"
 
-void ft_error(int close) {
-    ft_putendl_fd("error", 1);
-    if (close)
-        exit(0);
+void	ft_error(int close)
+{
+	ft_putendl_fd("error", 1);
+	if (close)
+		exit(0);
 }
