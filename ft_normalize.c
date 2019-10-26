@@ -69,7 +69,7 @@ char **ft_normalize(char **buff) {
         j = 1;//TODO: fix me
         while (j < 4)
         {
-            ft_swap_ptr((void **)&buff[i + j - 1], (void **)&buff[j]);
+            ft_swap_ptr((void **)&buff[j - 1], (void **)&buff[j]);
             j++;
         }
         i++;
