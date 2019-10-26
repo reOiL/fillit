@@ -6,7 +6,7 @@
 /*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 14:38:29 by jwebber           #+#    #+#             */
-/*   Updated: 2019/10/26 14:55:05 by jwebber          ###   ########.fr       */
+/*   Updated: 2019/10/26 15:00:27 by jwebber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int		ft_brute2(char **field, t_list *lst, size_t size, char word)
 			if (is_possible((t_quad *)lst->content, size, iter, field))
 			{
 				ft_set_block(field, iter, *(t_quad *)lst->content, word);
-				i++;
 				if (ft_brute2(field, lst->next, size, word + 1))
 					return (1);
 				else
