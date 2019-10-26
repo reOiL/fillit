@@ -5,6 +5,21 @@
 #include <fcntl.h>
 #include "fillit.h"
 
+int check_valid_inp(char *str)
+{
+	int i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while(str[i] != '\0')
+	{
+		if(str[i] != '.' && str[i] != '#')
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 char 	**ft_read_node(int fd)
 {
@@ -21,7 +36,8 @@ char 	**ft_read_node(int fd)
     while (i < 4)
     {
         code = get_next_line(fd, &ret[i]);
-        if (code == -1 || (code == 0 && i != 4) || ft_strlen(ret[i]) != 4)
+        if (code == -1 || (code == 0 && i != 4) ||
+        	ft_strlen(ret[i]) != 4 || !check_valid_inp(ret[i]))
         {
             ft_remove_sstr(&ret);
             return (NULL);

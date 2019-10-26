@@ -60,13 +60,13 @@ char **ft_normalize(char **buff) {
     if (!buff)
 		return (NULL);
     swap_pair.x = ft_find_up(buff);
-    assert(swap_pair.x != -1);
-    swap_pair.y = ft_find_right(buff);
-    assert(swap_pair.y != -1);
+	swap_pair.y = ft_find_right(buff);
+    if(swap_pair.x == -1 || swap_pair.y == -1)
+		return (buff);
     i = 0;
     while (i < swap_pair.x)
     {
-        j = 1;//TODO: fix me
+        j = 1;
         while (j < 4)
         {
             ft_swap_ptr((void **)&buff[j - 1], (void **)&buff[j]);
