@@ -1,9 +1,17 @@
-//
-// Created by reoil on 14.10.2019.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fillit.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/26 15:42:11 by jwebber           #+#    #+#             */
+/*   Updated: 2019/10/26 15:42:29 by jwebber          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef FILLIT_FILLIT_H
-#define FILLIT_FILLIT_H
+# define FILLIT_FILLIT_H
 
 # include "libft/libft.h"
 # include "ft_pair.h"
@@ -26,4 +34,4 @@ int		check_tet(char **tet);
 int		check_valid_inp(char *str);
 t_list	*ft_del_and_close(int fd, t_list *lst, char **buff);
 
-#endif //FILLIT_FILLIT_H
+#endif
