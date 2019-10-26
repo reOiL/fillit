@@ -24,5 +24,6 @@ size_t	ft_find_size(size_t len);
 int		ft_tet_to_num(char **list);
 int		check_tet(char **tet);
 int		check_valid_inp(char *str);
+t_list	*ft_del_and_close(int fd, t_list *lst, char **buff);
 
 #endif //FILLIT_FILLIT_H

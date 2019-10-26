@@ -6,14 +6,14 @@
 /*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 15:04:42 by jwebber           #+#    #+#             */
-/*   Updated: 2019/10/26 15:07:27 by jwebber          ###   ########.fr       */
+/*   Updated: 2019/10/26 15:19:35 by jwebber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fcntl.h>
 #include "fillit.h"
 
-char 	**ft_read_node(int fd)
+char	**ft_read_node(int fd)
 {
 	char	**ret;
 	int		i;
@@ -39,7 +39,7 @@ char 	**ft_read_node(int fd)
 	return (ret);
 }
 
-int 	ft_skip(int fd)
+int		ft_skip(int fd)
 {
 	char	*buff;
 	int		code;
@@ -49,7 +49,7 @@ int 	ft_skip(int fd)
 		return (-1);
 	if (code == 0)
 		return (0);
-	if(ft_strcmp(buff, "") != 0)
+	if (ft_strcmp(buff, "") != 0)
 	{
 		ft_strdel(&buff);
 		return (-1);
@@ -58,42 +58,37 @@ int 	ft_skip(int fd)
 	return (1);
 }
 
-void ft_push_back(t_list **lst, t_list *new)
+void	ft_push_back(t_list **lst, t_list *new)
 {
 	if (new == NULL || lst == NULL)
 		return ;
 	if (*lst == NULL)
-		return ft_lstadd(lst, new);
-	return ft_push_back(&((*lst)->next), new);
+		return (ft_lstadd(lst, new));
+	return (ft_push_back(&((*lst)->next), new));
 }
 
 t_list	*ft_parse(char *file)
 {
 	int		fd;
 	t_list	*lst;
-	char 	**buff;
-	int 	code;
+	char	**buff;
+	int		code;
 	t_quad	quad;
 
 	fd = open(file, O_RDONLY);
-	lst = NULL;
-	if (fd < 0)
+	if (fd < 0 && !(lst = NULL))
 		return (NULL);
 	while (1)
 	{
 		buff = ft_normalize(ft_read_node(fd));
 		code = ft_skip(fd);
 		if (!buff || code < 0 || !check_tet(buff))
-		{
-			ft_lstdel(&lst, ft_fill_del);
-			ft_remove_sstr(&buff);
-			return (NULL);
-		}
+			return (ft_del_and_close(fd, lst, buff));
 		quad = ft_tet_coordinate(buff);
 		ft_push_back(&lst, ft_lstnew((void *)&quad, sizeof(t_quad)));
 		ft_remove_sstr(&buff);
 		if (code == 0)
-			break;
+			break ;
 	}
 	close(fd);
 	return (lst);
