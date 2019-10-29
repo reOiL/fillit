@@ -6,7 +6,7 @@
 #    By: jwebber <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/26 17:06:25 by jwebber           #+#    #+#              #
-#    Updated: 2019/10/26 15:08:36 by jwebber          ###   ########.fr        #
+#    Updated: 2019/10/29 15:41:39 by jwebber          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,4 +57,3 @@ fclean: clean
 	@printf "\e[31mFull cleaned 💀 💀 💀 💀  !!!\n"
 
 re: fclean all
-	@$(MAKE) re -C $(LIBFT_PATH)
