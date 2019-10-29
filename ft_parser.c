@@ -6,7 +6,7 @@
 /*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 15:04:42 by jwebber           #+#    #+#             */
-/*   Updated: 2019/10/26 15:19:35 by jwebber          ###   ########.fr       */
+/*   Updated: 2019/10/29 16:02:24 by jwebber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_list	*ft_parse(char *file)
 	{
 		buff = ft_normalize(ft_read_node(fd));
 		code = ft_skip(fd);
-		if (!buff || code < 0 || !check_tet(buff))
+		if (!buff || code < 0 || !check_tet(buff) || ft_lstsize(lst) > 26)
 			return (ft_del_and_close(fd, lst, buff));
 		quad = ft_tet_coordinate(buff);
 		ft_push_back(&lst, ft_lstnew((void *)&quad, sizeof(t_quad)));

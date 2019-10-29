@@ -6,7 +6,7 @@
 /*   By: jwebber <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 14:28:51 by jwebber           #+#    #+#             */
-/*   Updated: 2019/10/26 14:29:48 by jwebber          ###   ########.fr       */
+/*   Updated: 2019/10/29 15:55:32 by jwebber          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_putendl("usage: fillit file");
+		ft_putendl("usage: ./fillit file");
 		return (0);
 	}
 	lst = ft_parse(argv[1]);

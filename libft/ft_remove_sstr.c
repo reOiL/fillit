@@ -16,7 +16,7 @@ void	*ft_remove_sstr(char ***s)
 {
 	int	i;
 
-	if (s == NULL || *s == NULL || **s == NULL)
+	if (s == NULL || *s == NULL)
 		return (NULL);
 	i = 0;
 	while ((*s)[i] != NULL)
